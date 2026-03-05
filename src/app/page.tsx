@@ -1,65 +1,145 @@
 import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+export default function Home(): JSX.Element {
+  const stats = [
+    { value: "150+", label: "Enterprise Dashboards Delivered" },
+    { value: "13+", label: "Indexed Research Publications" },
+    { value: "100+", label: "Students & Professionals Trained" },
+    { value: "AI", label: "Automation & Copilot Solutions" },
+  ];
+
+  const specializations = [
+    {
+      title: "Enterprise BI & Visualization",
+      desc: "Microsoft Fabric, Power BI, DAX, Star Schema Modeling, KPI Dashboards, RLS, Incremental Refresh & Governance.",
+    },
+    {
+      title: "Data Engineering & Big Data",
+      desc: "SQL Server, Databricks, PySpark, Lakehouse Architecture, ETL/ELT Pipelines, API Integration & Data Warehousing.",
+    },
+    {
+      title: "Artificial Intelligence & ML",
+      desc: "Predictive Modeling, Classification Algorithms, Feature Engineering, Statistical Modeling & Decision Systems.",
+    },
+    {
+      title: "AI Automation & Low-Code",
+      desc: "Copilot Studio, Power Automate, Power Apps, HR & Sales Bots, Workflow Automation & Process Optimization.",
+    },
+    {
+      title: "Construction Intelligence",
+      desc: "ACC Insight Builder, Amazon QuickSight, MPP Integration, Operational Dashboards & Gateway Automation.",
+    },
+    {
+      title: "Research & Mathematical Modeling",
+      desc: "Nano Topology, Scopus & WoS Publications, Mathematical Foundations for AI & Advanced Analytical Systems.",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="relative min-h-screen bg-slate-950 text-white overflow-hidden">
+
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-600 opacity-10 blur-3xl rounded-full"></div>
+
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-10"></div>
+
+      <div className="relative px-6 py-24 max-w-7xl mx-auto space-y-32">
+
+        {/* HERO */}
+        <section className="grid md:grid-cols-2 items-center gap-20">
+
+          <div className="space-y-8">
+
+         <h1 className="text-4xl lg:text-5xl font-extrabold leading-[1.2] whitespace-nowrap bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 bg-clip-text text-transparent">
+  Dr. Vignesh Kumar C
+</h1>
+
+            <p className="text-2xl text-gray-300 font-medium">
+                  Enterprise Data & Analytics Architect | Power BI, Microsoft Fabric & Data Engineering Specialist | Copilot Studio Developer | Research Scholar
+            </p>
+
+            <p className="text-lg text-gray-400 leading-8 max-w-xl">
+              Enterprise BI • AI Automation • Data Engineering • Construction Intelligence • Research Scholar
+            </p>
+
+            <p className="text-gray-400 leading-8 max-w-xl">
+              Designing scalable enterprise analytics platforms, AI-driven automation systems,
+              and operational dashboards backed by strong mathematical research foundations.
+            </p>
+
+            <div className="flex flex-wrap gap-6 pt-6">
+              <a
+                href="/experience"
+                className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-xl transition shadow-lg hover:shadow-blue-500/40"
+              >
+                Experience
+              </a>
+
+              <a
+                href="/projects"
+                className="border border-blue-400 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-xl transition"
+              >
+                Projects
+              </a>
+
+              <a
+                href="/contact"
+                className="bg-slate-800 hover:bg-slate-700 px-8 py-3 rounded-xl transition"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE IMAGE */} <div className="flex justify-center"> <div className="relative p-4 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-slate-800 shadow-xl"> <div className="absolute -inset-2 bg-blue-500 opacity-10 blur-2xl rounded-2xl"></div> <div className="relative w-[260px] h-[340px] rounded-xl overflow-hidden"> <Image src="/photo.jpg" alt="Dr. Vignesh Kumar" width={260} height={340} className="object-cover w-full h-full" priority /> </div> </div> </div>
+
+        </section>
+
+
+        {/* STATS */}
+        <section className="grid md:grid-cols-4 gap-8 text-center">
+          {stats.map((item, index) => (
+            <div
+              key={index}
+              className="bg-slate-900/60 backdrop-blur-xl p-8 rounded-2xl border border-slate-800 hover:-translate-y-2 hover:border-blue-500 hover:shadow-blue-500/20 transition duration-300"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <h2 className="text-4xl font-bold text-blue-400">{item.value}</h2>
+              <p className="text-gray-400 mt-2 text-sm">{item.label}</p>
+            </div>
+          ))}
+        </section>
+
+
+        {/* SPECIALIZATIONS */}
+        <section className="space-y-16">
+
+          <h2 className="text-4xl font-semibold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            Core Specializations
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {specializations.map((item, index) => (
+              <div
+                key={index}
+                className="bg-slate-900/60 backdrop-blur-xl p-8 rounded-2xl border border-slate-800 hover:-translate-y-3 hover:border-blue-500 hover:shadow-blue-500/20 transition duration-300"
+              >
+                <h3 className="text-blue-300 font-semibold text-lg mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-400 text-sm leading-7">
+                  {item.desc}
+                </p>
+
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+      </div>
     </div>
   );
 }
