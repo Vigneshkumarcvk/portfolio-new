@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const stats = [
     { value: "150+", label: "Enterprise Dashboards Delivered" },
     { value: "13+", label: "Indexed Research Publications" },
