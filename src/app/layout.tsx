@@ -1,6 +1,16 @@
+
 import "./globals.css";
 import Link from "next/link";
-import React from "react";
+
+export const metadata = {
+  title: "Dr. Vignesh Kumar C | Portfolio",
+  description: "Enterprise Data & AI Architect Portfolio",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default function RootLayout({
   children,
@@ -9,25 +19,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-900 text-white">
+      <body className="bg-slate-900 text-white overflow-x-hidden">
 
-        <nav className="p-6 flex justify-between border-b border-gray-700">
-          <h1 className="font-bold text-xl">Dr. Vignesh Kumar C</h1>
+        {/* NAVBAR */}
+        <nav className="p-6 flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-700 gap-4">
 
-          <div className="space-x-6">
+          {/* NAME */}
+          <h1 className="font-bold text-xl text-center md:text-left">
+            Dr. Vignesh Kumar C
+          </h1>
+
+          {/* MENU */}
+          <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm md:text-base">
             <Link href="/">Home</Link>
             <Link href="/about">About</Link>
             <Link href="/experience">Experience</Link>
             <Link href="/projects">Projects</Link>
             <Link href="/research">Research</Link>
-            <Link href="/certifications">Certfications</Link>
+            <Link href="/certifications">Certifications</Link>
             <Link href="/contact">Contact</Link>
           </div>
+
         </nav>
 
+        {/* PAGE CONTENT */}
         {children}
 
       </body>
     </html>
   );
 }
+
